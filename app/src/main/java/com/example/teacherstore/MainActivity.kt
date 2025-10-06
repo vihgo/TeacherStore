@@ -8,21 +8,20 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.teacherstore.navigation.AppRoute
 import com.example.teacherstore.navigation.NavigationEvent
+import com.example.teacherstore.ui.screens.HomeScreen
+import com.example.teacherstore.ui.screens.ProfileScreen
 import com.example.teacherstore.ui.theme.TeacherStoreTheme
 import com.example.teacherstore.viewmodel.MainViewModel
 import kotlinx.coroutines.flow.collectLatest
-import org.jetbrains.annotations.ApiStatus
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
@@ -97,10 +96,10 @@ class MainActivity : ComponentActivity() {
 
                     ){
                         composable(AppRoute.Home.route) {
-                            //HomeController(navController,viewModel)
+                            HomeScreen(viewModel,navController)
                         }
                         composable(AppRoute.Home.route) {
-                            //PerfilScreen(navController,viewModel)
+                            ProfileScreen(viewModel,navController)
                         }
                         composable(AppRoute.Home.route) {
                             //SettingScreen(navController,viewModel)

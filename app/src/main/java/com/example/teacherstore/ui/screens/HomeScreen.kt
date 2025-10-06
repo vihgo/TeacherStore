@@ -28,8 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
 import com.example.teacherstore.viewmodel.MainViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
-import org.jetbrains.annotations.ApiStatus
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.example.teacherstore.navigation.AppRoute
 import kotlinx.coroutines.launch
