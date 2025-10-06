@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
 
                         }
                     }
-                } //finaliza el bloque LaunchedEffect, encargado de realizar la coroutina para manejar la navegación.
+                }    //finaliza el bloque LaunchedEffect, encargado de realizar la coroutina para manejar la navegación.
 
                 Scaffold(modifier = Modifier.fillMaxSize())
                 {
