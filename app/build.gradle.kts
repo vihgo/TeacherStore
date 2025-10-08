@@ -46,7 +46,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.runtime.compose)
   //  implementation(libs.androidx.lifecycle.viemodel.compose)
-    implementation(libs.androidx.navigation.compose)
+  //  implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
