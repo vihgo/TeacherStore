@@ -12,6 +12,7 @@ class UsuarioViewModel: ViewModel() {
 
     //declaramos el estado interno mutable
     private val _estado= MutableStateFlow(UsuarioUiState())
+    //expone el estado de manera publica y es de solo lectura
     val estado: StateFlow<UsuarioUiState> = _estado
 
     //actualiza el campo nombre
@@ -42,10 +43,11 @@ class UsuarioViewModel: ViewModel() {
         val formularioActual=_estado.value
         val errores= UsuarioErrores(
             nombre = if(formularioActual.nombre.isBlank()) "El campo es obligatorio" else null,
-            correo = if(!formularioActual.correo.contains("@") && formularioActual.correo.isBlank()) "El correo debe contener un @" else null,
+            correo = if(!formularioActual.correo.contains("@") || formularioActual.correo.isBlank()) "El correo debe contener un @" else null,
             contrasena= if(formularioActual.contrasena.length <6)"La contraseña debe tener al menos 6 caracteres" else null,
             direccion = if(formularioActual.direccion.isBlank()) "El campo es obligatorio" else null,
         )
+
         //listOfNotNull retorna una lista de los elementos que "no sean nulos"
         val hayErrores=listOfNotNull(
             errores.nombre,
