@@ -44,7 +44,7 @@ class UsuarioViewModel: ViewModel() {
         val formularioActual=_estado.value
         val errores= UsuarioErrores(
             nombre = if(formularioActual.nombre.isBlank()) "El campo es obligatorio" else null,
-            correo = if(Patterns.EMAIL_ADDRESS.matcher(formularioActual.correo).matches()) "El correo debe ser valido" else null,
+            correo = if(!Patterns.EMAIL_ADDRESS.matcher(formularioActual.correo).matches()) "El correo debe ser valido" else null,
             contrasena= if(formularioActual.contrasena.length <6)"La contraseña debe tener al menos 6 caracteres" else null,
             direccion = if(formularioActual.direccion.isBlank()) "El campo es obligatorio" else null,
         )
