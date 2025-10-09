@@ -1,5 +1,6 @@
 package com.example.teacherstore.viewmodel
 
+import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import com.example.teacherstore.model.UsuarioErrores
 import com.example.teacherstore.model.UsuarioUiState
@@ -43,7 +44,7 @@ class UsuarioViewModel: ViewModel() {
         val formularioActual=_estado.value
         val errores= UsuarioErrores(
             nombre = if(formularioActual.nombre.isBlank()) "El campo es obligatorio" else null,
-            correo = if(!formularioActual.correo.contains("@") || formularioActual.correo.isBlank()) "El correo debe contener un @" else null,
+            correo = if(Patterns.EMAIL_ADDRESS.matcher(formularioActual.correo).matches()) "El correo debe ser valido" else null,
             contrasena= if(formularioActual.contrasena.length <6)"La contraseña debe tener al menos 6 caracteres" else null,
             direccion = if(formularioActual.direccion.isBlank()) "El campo es obligatorio" else null,
         )
@@ -58,7 +59,10 @@ class UsuarioViewModel: ViewModel() {
 
         _estado.update { it.copy(errores=errores) }
 
-        return !hayErrores
+        return if(hayErrores) false
+        else true
+
+        //return !hayErrores
 
 
 
