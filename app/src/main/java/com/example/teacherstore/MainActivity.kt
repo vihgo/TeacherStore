@@ -17,8 +17,10 @@ import com.example.teacherstore.navigation.AppRoute
 import com.example.teacherstore.navigation.NavigationEvent
 import com.example.teacherstore.ui.screens.HomeScreen
 import com.example.teacherstore.ui.screens.ProfileScreen
+import com.example.teacherstore.ui.screens.RegistroScreen
 import com.example.teacherstore.ui.theme.TeacherStoreTheme
 import com.example.teacherstore.viewmodel.MainViewModel
+import com.example.teacherstore.viewmodel.UsuarioViewModel
 import kotlinx.coroutines.flow.collectLatest
 
 
@@ -30,6 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             TeacherStoreTheme{
                 val viewModel: MainViewModel= viewModel()
+                val viewModelRegistro: UsuarioViewModel=viewModel()
                 val navController = rememberNavController()
 
                 /**La función LaunchedEffect en Jetpack Compose se usa para ejecutar
@@ -90,12 +93,15 @@ class MainActivity : ComponentActivity() {
                     innerPadding ->
                     NavHost(
                         navController=navController,
-                        startDestination = AppRoute.Home.route,
+                        startDestination = AppRoute.Register.route,
                         modifier = Modifier.padding(innerPadding)
 
                     ){
                         composable(AppRoute.Home.route) {
                             HomeScreen(viewModel,navController)
+                        }
+                        composable(AppRoute.Register.route) {
+                            RegistroScreen(viewModelRegistro,navController)
                         }
                         composable(AppRoute.Profile.route) {
                             ProfileScreen(viewModel,navController)
