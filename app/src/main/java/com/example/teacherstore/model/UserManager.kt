@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.map
 
 private  const val PREFERENCIAS_USUARIO="preferencias_usuario"
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(PREFERENCIAS_USUARIO)
+/*val Context.dataStore: DataStore<Preferences> by preferencesDataStore(PREFERENCIAS_USUARIO)
 
 object UserManager {
     //Definir las claves de DataStore. Las claves deben ser del tipo correspondiete a los datos que almacenaremos
@@ -54,4 +54,4 @@ object UserManager {
         //context.dataStore.data
     }
 
-}
+}*/
