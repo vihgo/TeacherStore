@@ -24,15 +24,15 @@ class EstadoDataStore(private val context:Context){
     }
 
     //lee en el archivo de preferencias
-    suspend fun obtenerEstado(): Flow<Boolean?>{
+   /* suspend fun obtenerEstado(): Flow<Boolean?>{
+        return context.dataStore.data.map { preferencias ->
+            preferencias[ESTADO_BOTON]
+        }
+    }*/
+     suspend fun obtenerEstado(): Flow<Boolean?> {
         return context.dataStore.data.map { preferencias ->
             preferencias[ESTADO_BOTON]
         }
     }
-    /* suspend fun obtenerEstado(): Flow<Map<String, Any?>> {
-        return context.dataStore.data.map { preferencias ->
-            mapOf("estado" to preferencias[ESTADO_BOTON])
-        }
-    }*/
 
 }
