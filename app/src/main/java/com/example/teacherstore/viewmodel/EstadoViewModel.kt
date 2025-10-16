@@ -25,7 +25,7 @@ class EstadoViewModel (application: Application) : AndroidViewModel(application)
 
 
     init {
-
+        cargarEstado()
     }
 
     fun cargarEstado(){

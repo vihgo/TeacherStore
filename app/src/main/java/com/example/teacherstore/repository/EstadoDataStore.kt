@@ -9,9 +9,9 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+//nombre para el data store
 private  const val PREFERENCIAS_USUARIO="preferencias_usuario"
 val Context.dataStore:DataStore<Preferences> by preferencesDataStore(PREFERENCIAS_USUARIO)
-
 class EstadoDataStore(private val context:Context){
 
     private val ESTADO_BOTON= booleanPreferencesKey("estado_boton")

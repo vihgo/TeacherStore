@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -28,14 +29,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.teacherstore.viewmodel.EstadoViewModel
 
 @Composable
-fun PantallaEstado(viewModel: EstadoViewModel= viewModel()){
+fun PantallaEstado(viewModel: EstadoViewModel= viewModel(),modifier: Modifier){
 
     val estadoBoton= viewModel.activo.collectAsState()
     val estadoMensaje= viewModel.mensaje.collectAsState()
 
     if (estadoBoton.value == null){
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
 
         ){
@@ -44,7 +45,7 @@ fun PantallaEstado(viewModel: EstadoViewModel= viewModel()){
 
     }else{
         val estaActivo=estadoBoton.value!!
-        val durationMillis = null
+
         val colorAnimado by animateColorAsState(
             targetValue = if(estaActivo) Color(0xFF4CAF50) else Color(0xFFB0BEC5),
             animationSpec = tween(durationMillis=500),label=""
@@ -53,24 +54,13 @@ fun PantallaEstado(viewModel: EstadoViewModel= viewModel()){
             derivedStateOf { if(estaActivo) "Desactivo" else "Activar" }
         }
 
-        Column(modifier= Modifier
+        Column(modifier= modifier
             .fillMaxSize()
             .padding(32.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
-            Button(
-                onClick = {viewModel::alternarEstado},
-                colors = ButtonDefaults.buttonColors(containerColor = colorAnimado),
-                modifier= Modifier.fillMaxSize()
-                    .height(60 .dp)
-
-            ) {
-                Text(textBoton, style = MaterialTheme.typography.titleLarge)
-
-            }
-            Spacer(Modifier.height(30.dp))
             AnimatedVisibility(estadoMensaje.value) {
                 Text(
                     text = "Estado guardado exitosamente",
@@ -78,6 +68,19 @@ fun PantallaEstado(viewModel: EstadoViewModel= viewModel()){
                     style= MaterialTheme.typography.bodyLarge
                 )
             }
+            Spacer(modifier.height(30.dp))
+            Button(
+                onClick = viewModel::alternarEstado,
+                colors = ButtonDefaults.buttonColors(containerColor = colorAnimado),
+                modifier= modifier.fillMaxWidth()
+                    .height(60 .dp)
+
+            ) {
+                Text(textBoton, style = MaterialTheme.typography.titleLarge)
+
+            }
+
+
         }
 
     }

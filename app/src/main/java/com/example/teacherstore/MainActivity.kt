@@ -32,6 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+
             TeacherStoreTheme{
                 val viewModel: MainViewModel= viewModel()
                 val viewModelRegistro: UsuarioViewModel=viewModel()
@@ -104,7 +105,7 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(viewModel,navController)
                         }
                         composable(AppRoute.PantallaEstado.route){
-                            PantallaEstado(viewModelEstado)
+                            PantallaEstado(viewModelEstado,Modifier)
                         }
                         composable(AppRoute.Register.route) {
                             RegistroScreen(viewModelRegistro,navController)
