@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -40,7 +41,13 @@ android {
 }
 
 dependencies {
+    val room_version = "2.8.1"
 
+    //dependencias para usar Room
+    implementation("androidx.room:room-runtime:$room_version")
+    //anotaciones
+    ksp("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
 
     // 1. Asegúrate de que tu Compose BOM (Bill of Materials) esté actualizado en tu archivo libs.versions.toml
     //    Para las versiones alpha/beta de Compose 1.9.x, necesitarás un BOM específico.
