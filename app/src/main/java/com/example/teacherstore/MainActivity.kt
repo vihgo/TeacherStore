@@ -17,11 +17,13 @@ import com.example.teacherstore.navigation.AppRoute
 import com.example.teacherstore.navigation.NavigationEvent
 import com.example.teacherstore.ui.screens.HomeScreen
 import com.example.teacherstore.ui.screens.PantallaEstado
+import com.example.teacherstore.ui.screens.PostScreen
 import com.example.teacherstore.ui.screens.ProfileScreen
 import com.example.teacherstore.ui.screens.RegistroScreen
 import com.example.teacherstore.ui.theme.TeacherStoreTheme
 import com.example.teacherstore.viewmodel.EstadoViewModel
 import com.example.teacherstore.viewmodel.MainViewModel
+import com.example.teacherstore.viewmodel.PostViewModel
 import com.example.teacherstore.viewmodel.UsuarioViewModel
 import kotlinx.coroutines.flow.collectLatest
 
@@ -35,6 +37,7 @@ class MainActivity : ComponentActivity() {
 
             TeacherStoreTheme{
                 val viewModel: MainViewModel= viewModel()
+                val postViewModel: PostViewModel=viewModel()
                 val viewModelRegistro: UsuarioViewModel=viewModel()
                 val viewModelEstado: EstadoViewModel=viewModel();
                 val navController = rememberNavController()
@@ -97,10 +100,13 @@ class MainActivity : ComponentActivity() {
                     innerPadding ->
                     NavHost(
                         navController=navController,
-                        startDestination = AppRoute.PantallaEstado.route,
+                        startDestination = AppRoute.Posts.route,
                         modifier = Modifier.padding(innerPadding)
 
                     ){
+                        composable(AppRoute.Posts.route) {
+                            PostScreen(postViewModel)
+                        }
                         composable(AppRoute.Home.route) {
                             HomeScreen(viewModel,navController)
                         }

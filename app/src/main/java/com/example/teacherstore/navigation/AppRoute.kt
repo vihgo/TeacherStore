@@ -4,6 +4,7 @@ sealed class AppRoute(val route:String) {
 
     data object PantallaEstado: AppRoute("pantalla_estado")
     data object Home:AppRoute("home")
+    data object Posts:AppRoute("posts")
     data object Register: AppRoute("register")
     data object Profile: AppRoute("profile")
     data object Settings: AppRoute("settings")

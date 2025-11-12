@@ -15,7 +15,7 @@ class PostViewModel: ViewModel() {
     val postList: StateFlow<List<Post>> =  _postList
 
     init {
-        //fet
+        fetchPosts()
     }
 
     private fun fetchPosts(){
