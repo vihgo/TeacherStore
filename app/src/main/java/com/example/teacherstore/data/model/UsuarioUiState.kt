@@ -1,4 +1,4 @@
-package com.example.teacherstore.model
+package com.example.teacherstore.data.model
 
 //Este modelo de datos será actualizado por el viewmodel
 data class UsuarioUiState(

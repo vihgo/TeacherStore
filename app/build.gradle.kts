@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.activity.compose)
 
+
     // 3. ACTUALIZAR: Usa la versión de Material3 del BOM.
     //    La versión 1.3.0 es demasiado nueva para ser estable pero puede que el BOM la alinee.
     //    Asegúrate de que libs.androidx.material3 no tenga una versión fija si usas el BOM.
@@ -79,6 +80,12 @@ dependencies {
     // 7. Otras dependencias
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.compose.material.icons.extended) // También gestionado por el BOM
+
+    //8. Dependencias RetroFit
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+
 
     // Dependencias de testing
     testImplementation(libs.junit)

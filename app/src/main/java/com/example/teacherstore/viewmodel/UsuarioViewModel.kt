@@ -2,8 +2,8 @@ package com.example.teacherstore.viewmodel
 
 import android.util.Patterns
 import androidx.lifecycle.ViewModel
-import com.example.teacherstore.model.UsuarioErrores
-import com.example.teacherstore.model.UsuarioUiState
+import com.example.teacherstore.data.model.UsuarioErrores
+import com.example.teacherstore.data.model.UsuarioUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

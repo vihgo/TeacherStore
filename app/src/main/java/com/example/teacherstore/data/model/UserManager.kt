@@ -1,4 +1,4 @@
-package com.example.teacherstore.model
+package com.example.teacherstore.data.model
 
 import android.content.Context
 import androidx.datastore.core.DataStore
